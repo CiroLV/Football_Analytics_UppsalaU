@@ -1,6 +1,6 @@
 Data/
 .DS_Store
 *.json
-SoccermaticsForPython-master/Statsbomb
-SoccermaticsForPython-master/Wyscout
+SoccermaticsForPython-master/Statsbomb/
+SoccermaticsForPython-master/Wyscout/
 
