@@ -37,39 +37,39 @@ from FCPython import createPitch
 (fig,ax) = createPitch(pitchLengthX,pitchWidthY,'yards','gray')
 
 #Plot the shots
-#for i,shot in shots.iterrows():
-#    x=shot['location'][0]
-#    y=shot['location'][1]
-#    
-#    goal=shot['shot_outcome_name']=='Goal'
-#    team_name=shot['team_name']
-#    
-#    circleSize=2
-#    circleSize=np.sqrt(shot['shot_statsbomb_xg']*15)
-#
-#    if (team_name==home_team_required):
-#        if goal:
-#            shotCircle=plt.Circle((x,pitchWidthY-y),circleSize,color="red")
-#            plt.text((x+1),pitchWidthY-y+1,shot['player_name']) 
-#        else:
-#            shotCircle=plt.Circle((x,pitchWidthY-y),circleSize,color="red")     
-#            shotCircle.set_alpha(.2)
-#    elif (team_name==away_team_required):
-#        if goal:
-#            shotCircle=plt.Circle((pitchLengthX-x,y),circleSize,color="blue") 
-#            plt.text((pitchLengthX-x+1),y+1,shot['player_name']) 
-#        else:
-#            shotCircle=plt.Circle((pitchLengthX-x,y),circleSize,color="blue")      
-#            shotCircle.set_alpha(.2)
-#    ax.add_patch(shotCircle)
-#    
-#    
-#plt.text(5,75,away_team_required + ' shots') 
-#plt.text(80,75,home_team_required + ' shots') 
-#     
-#fig.set_size_inches(10, 7)
-#fig.savefig('Output/shots.pdf', dpi=100) 
-#plt.show()
+for i,shot in shots.iterrows():
+    x=shot['location'][0]
+    y=shot['location'][1]
+    
+    goal=shot['shot_outcome_name']=='Goal'
+    team_name=shot['team_name']
+    
+    circleSize=2
+    # circleSize=np.sqrt(shot['shot_statsbomb_xg']*15)
+
+    if (team_name==home_team_required):
+        if goal:
+            shotCircle=plt.Circle((x,pitchWidthY-y),circleSize,color="red")
+            plt.text((x+1),pitchWidthY-y+1,shot['player_name']) 
+        else:
+            shotCircle=plt.Circle((x,pitchWidthY-y),circleSize,color="red")     
+            shotCircle.set_alpha(.2)
+    elif (team_name==away_team_required):
+        if goal:
+            shotCircle=plt.Circle((pitchLengthX-x,y),circleSize,color="blue") 
+            plt.text((pitchLengthX-x+1),y+1,shot['player_name']) 
+        else:
+            shotCircle=plt.Circle((pitchLengthX-x,y),circleSize,color="blue")      
+            shotCircle.set_alpha(.2)
+    ax.add_patch(shotCircle)
+    
+    
+plt.text(5,75,away_team_required + ' shots') 
+plt.text(80,75,home_team_required + ' shots') 
+    
+fig.set_size_inches(10, 7)
+# fig.savefig('Output/shots.pdf', dpi=100) 
+plt.show()
 
 #Exercise: 
 #1, Create a dataframe of passes which contains all the passes in the match
